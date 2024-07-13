@@ -49,7 +49,7 @@ export const login = async (req, res) => {
       process.env.JWT_SECRET_KEY,
       { expiresIn: age }
     );
-
+    const { password: userPassword, ...userInfo } = user;
     res
       .cookie("token", token, {
         httpOnly: true,
@@ -57,7 +57,7 @@ export const login = async (req, res) => {
         //secure:true    // we cant use it bcoz it is in localhost but use it when in production mode as theree is http then
       })
       .status(200)
-      .json({ message: "Login Succcesful" });
+      .json(userInfo);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "failed to login" });
