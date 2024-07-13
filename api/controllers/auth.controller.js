@@ -39,7 +39,7 @@ export const login = async (req, res) => {
 
     // generate cookie token and send to the user
 
-    // res.setHeader("Set-Cookie", "test=" + "myValue").json("success"); // way to send cookies but to simplify it we use cookie parser as described below
+    //res.setHeader("Set-Cookie", "test=" + "myValue").json("success"); // way to send cookies but to simplify it we use cookie parser as described below
 
     const age = 1000 * 60 * 60 * 24 * 7;
     const token = jwt.sign(
